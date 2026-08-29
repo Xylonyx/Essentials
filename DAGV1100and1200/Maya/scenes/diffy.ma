@@ -1,6 +1,6 @@
 //Maya ASCII 2027 scene
-//Name: boogedy.ma
-//Last modified: Fri, Aug 28, 2026 10:49:47 PM
+//Name: diffy.ma
+//Last modified: Fri, Aug 28, 2026 10:50:23 PM
 //Codeset: 1252
 requires maya "2027";
 requires "mtoa" "5.6.2";
@@ -11,7 +11,7 @@ fileInfo "product" "Maya 2027";
 fileInfo "version" "2027";
 fileInfo "cutIdentifier" "202607171511-52c21617ee";
 fileInfo "osv" "Windows 11 Pro v2009 (Build: 26200)";
-fileInfo "UUID" "4AB32424-4208-D433-11AA-D88E66771620";
+fileInfo "UUID" "DEE74E09-4CE2-7D66-E197-83A49A794CD3";
 createNode transform -s -n "persp";
 	rename -uid "1AFA6962-407B-E66D-9A9C-30921CC5454A";
 	setAttr ".v" no;
@@ -327,4 +327,4 @@ connectAttr "pCubeShape2.wm" "polyExtrudeFace4.mp";
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
 connectAttr "pCubeShape1.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "pCubeShape2.iog" ":initialShadingGroup.dsm" -na;
-// End of boogedy.ma
+// End of diffy.ma
