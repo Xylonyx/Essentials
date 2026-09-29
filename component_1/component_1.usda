@@ -1,0 +1,131 @@
+#usda 1.0
+(
+    customLayerData = {
+        dictionary adsk_forward_ruleset = {
+            bool adsk_forward_continuously = 1
+            dictionary rules = {
+                dictionary rule_0 = {
+                    string description = "Only allow edition under geometry or material scopes."
+                    string id = "rule_0"
+                    string input_path_regex = "^(?!(?:/root$|/root/(?:geo|mtl)(?:/|$))).+"
+                    string target_layer_regex = "[BLOCK]"
+                }
+                dictionary rule_1 = {
+                    string description = "Material bindings to the bind layer."
+                    string id = "rule_1"
+                    string input_path_regex = "^(/root/).*.material:binding"
+                    string target_layer_regex = ".*/component_1/bind/bind.usda"
+                    string[] target_path_replace = ["{variant_target_path}"]
+                }
+                dictionary rule_2 = {
+                    string description = "Geometry to the variant payload for geometry."
+                    string id = "rule_2"
+                    string input_path_regex = "^(/root)/geo/.*"
+                    string target_layer_regex = ".*/component_1/geo/{variant_payload_selection}.usdc"
+                    string[] target_path_replace = [""]
+                }
+                dictionary rule_3 = {
+                    string description = "Materials to the variant payload for materials."
+                    string id = "rule_3"
+                    string input_path_regex = "^(/root)/mtl/.*"
+                    string target_layer_regex = ".*/component_1/mtl/{variant_payload_selection}.usdc"
+                    string[] target_path_replace = [""]
+                }
+            }
+            int version = 1
+        }
+    }
+    defaultPrim = "root"
+    metersPerUnit = 0.01
+    upAxis = "Y"
+)
+
+class "__class__"
+{
+    class "component_1"
+    {
+    }
+}
+
+def Xform "root" (
+    prepend apiSchemas = ["GeomModelAPI"]
+    assetInfo = {
+        asset identifier = @./component_1.usda@
+        string name = "component_1"
+        string version = "1.0"
+    }
+    customData = {
+        dictionary adsk = {
+            dictionary "component-creator" = {
+                string options = '''{
+    "at_origin": false,
+    "center_component": false,
+    "class_prefix_path": "",
+    "component_name": "component_1",
+    "component_prim_path_pattern": "/root",
+    "component_version": "1.0",
+    "file_extension": "usda",
+    "filename_pattern": "{component_folder}/{component_name}/{component_filename}.{file_extension}",
+    "imageable_purpose": "",
+    "materials_scope_name": "mtl",
+    "meshes_scope_name": "geo",
+    "options_version": 1,
+    "payload_filename_pattern": "{component_folder}/{component_name}/{scope_name}/{variant_selections}.usdc",
+    "scope_layer_filename_pattern": "{component_folder}/{component_name}/{scope_name}/{scope_name}.{file_extension}",
+    "sub_layers_in_payload": true,
+    "sub_layers_payload_filename_pattern": "{component_folder}/{component_name}/payload.{file_extension}",
+    "use_bindings_scope_layer": true,
+    "use_materials_payloads": false,
+    "use_materials_references": true,
+    "use_materials_scope_layer": true,
+    "use_meshes_payloads": false,
+    "use_meshes_references": true,
+    "use_meshes_scope_layer": true,
+    "variant_name_pattern": "{object_name}",
+    "variant_numbered_pattern": "variant_<n>",
+    "variant_set_name_pattern": "{object_name}",
+    "variant_set_numbered_pattern": "variant_set_<n>"
+}'''
+                string variant_sets = '''{
+    "variant_set_1": {
+        "variant_set_name": "variant_set_1",
+        "variants": {
+            "pCube2": {
+                "payloads": {
+                    "./geo/variant_set_1_pCube2.usdc": {
+                        "is_payload": "false",
+                        "layer_filename": "./geo/variant_set_1_pCube2.usdc",
+                        "scope_path": "/root/geo"
+                    },
+                    "./mtl/variant_set_1_pCube2.usdc": {
+                        "is_payload": "false",
+                        "layer_filename": "./mtl/variant_set_1_pCube2.usdc",
+                        "scope_path": "/root/mtl"
+                    }
+                },
+                "sub_variant_sets": {},
+                "variant_name": "pCube2"
+            }
+        }
+    }
+}'''
+            }
+        }
+    }
+    prepend inherits = </__class__/component_1>
+    kind = "component"
+    prepend payload = @./payload.usda@
+    variants = {
+        string variant_set_1 = "pCube2"
+    }
+    append variantSets = "variant_set_1"
+)
+{
+    variantSet "variant_set_1" = {
+        "pCube2" {
+            float3[] extentsHint = [(-0.6750522, 2.567201, 1.6777852), (1.3752165, 3.0069315, 4.144831)]
+
+        }
+    }
+}
+
