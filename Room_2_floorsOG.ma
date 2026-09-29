@@ -1,6 +1,6 @@
 //Maya ASCII 2027 scene
 //Name: Room_2_floors.ma
-//Last modified: Tue, Sep 22, 2026 03:03:47 PM
+//Last modified: Tue, Sep 22, 2026 03:52:40 PM
 //Codeset: 1252
 file -rdi 1 -ns "Bookshelf1" -rfn "BookshelfRN" -op "v=0;" -typ "mayaAscii" "C:/Users/10948158/Documents/GitHub/Essentials/Bookshelf.ma";
 file -rdi 1 -ns "Books1" -rfn "BooksRN" -op "v=0;" -typ "mayaAscii" "C:/Users/10948158/Documents/GitHub/Essentials/Books.ma";
@@ -24,26 +24,27 @@ requires "stereoCamera" "10.0";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" -nodeType "aiImagerDenoiserOidn"
 		 "mtoa" "5.6.1.1";
 requires "stereoCamera" "10.0";
+requires -nodeType "UsdDefaultSettings" -dataType "pxrUsdStageData" "mayaUsdPlugin" "0.37.0";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
 fileInfo "product" "Maya 2027";
 fileInfo "version" "2027";
 fileInfo "cutIdentifier" "202604221258-70da84b25e";
 fileInfo "osv" "Windows 11 Enterprise v2009 (Build: 26200)";
-fileInfo "UUID" "009FC036-4EAE-7E0E-29D4-2194ED4A4716";
+fileInfo "UUID" "5B6AE372-4C48-CEE8-F8E5-72925B014456";
 fileInfo "license" "education";
 createNode transform -s -n "persp";
 	rename -uid "ECE1FC23-4A2D-3513-09AC-E087875BFF33";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -19.737761220314901 6.3159346936761454 -23.060215087816893 ;
-	setAttr ".r" -type "double3" 723.59999999999491 -2649.599999998256 0 ;
+	setAttr ".t" -type "double3" -5.7500513468032466 14.083653186504833 -26.515166188195295 ;
+	setAttr ".r" -type "double3" 706.1999999999947 -2678.399999998227 0 ;
 	setAttr ".rp" -type "double3" -1.3877787807814457e-17 0 0 ;
 	setAttr ".rpt" -type "double3" 1.7059849664420901e-16 -8.2349602458256261e-17 -6.5845755506789046e-17 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "8D141CB8-4AF8-F2B6-D111-B0B741D2526B";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999979;
-	setAttr ".coi" 29.69468737756587;
+	setAttr ".coi" 24.747780479334182;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -17090,7 +17091,7 @@ createNode materialxStack -n "materialXStackShape1" -p "materialXStack1";
 	setAttr -k off ".v";
 	setAttr ".docs" -type "string" "[\n    {\n        \"document\": \"AAABSXicdZBNCoMwEEb3nmKYAzSVrgr+UHBpLfQCEszYCppIEou9fWOqRYVuQjLzzeNlonTsWniRNo2SMYaHI6ZJEHXckm54O65bpzNCpVqlTc8ritEdpnpgEgBMA5ZA8s7V/T1EsO/evcyg6yn55II0glSCBNUxXu7FLc/KIit9HoF50BxfBGbkdYNcmiuaw+wmvZcDNrIf7IzZufwV3P7jK8Z2fLcl9ltTEnwAAuNvFQ==\",\n        \"name\": \"document1\"\n    }\n]\n";
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "3751C1C1-4471-3B45-4D70-59A54F236D0C";
+	rename -uid "D6C733B2-4DE9-F849-2C70-75A1431F5E3F";
 	setAttr -s 13 ".lnk";
 	setAttr -s 13 ".slnk";
 createNode UsdDefaultSettings -n "UsdDefaultRenderSettings";
@@ -17100,16 +17101,16 @@ createNode UsdDefaultSettings -n "UsdDefaultRenderSettings";
 	setAttr ".asp" -type "string" "UsdDefaultRenderSettings,/Render/SceneRenderSettings";
 lockNode -l 1 ;
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "08ACD697-403D-BFF7-C9B2-64A4124D2E00";
+	rename -uid "58FC7EC7-4507-0099-084F-46AB2E4AF9D7";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "18CD18F4-4341-5043-FA6F-D99F9DFF7DDA";
+	rename -uid "03A9311A-4A8E-3C04-32FD-DAAD9F1C96E0";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "06330EC4-4CD5-63EE-5327-13BE695D56DE";
+	rename -uid "B478734A-4F14-513C-42B3-CBA9346392DC";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "B584936C-47F7-F9D7-95F1-CA9980D4F4EE";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "A6194590-440A-465A-B954-B0AC02225214";
+	rename -uid "53FCDE8A-4E94-3A90-AA65-7DBA8423E721";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "ABC4AE72-4695-7B25-AD98-E8954B336645";
 	setAttr ".g" yes;
@@ -18124,11 +18125,8 @@ createNode polyExtrudeEdge -n "polyExtrudeEdge1";
 createNode polyTweak -n "polyTweak5";
 	rename -uid "8A7C5C81-4359-48E4-9422-26B745CDEC4E";
 	setAttr ".uopa" yes;
-	setAttr -s 13 ".tk";
-	setAttr ".tk[421]" -type "float3" 0 0 -0.34349307 ;
-	setAttr ".tk[422]" -type "float3" 0 0 -0.34349307 ;
-	setAttr ".tk[423]" -type "float3" 0 0 -0.34349307 ;
-	setAttr ".tk[424]" -type "float3" 0 0 -0.34349307 ;
+	setAttr -s 4 ".tk[421:424]" -type "float3"  0 0 -0.34349307 0 0 -0.34349307
+		 0 0 -0.34349307 0 0 -0.34349307;
 createNode deleteComponent -n "deleteComponent51";
 	rename -uid "A8E44A94-41FC-7C48-146F-0F8EFF4D3268";
 	setAttr ".dc" -type "componentList" 1 "f[215]";
